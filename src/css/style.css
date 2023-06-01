@@ -1,0 +1,11 @@
+.game-container {
+    --top-left: url('../img/gameboard/top-left.png');
+    --top: url('../img/gameboard/top.png');
+    --top-right: url('../img/gameboard/top-right.png');
+    --left: url('../img/gameboard/left.png');
+    --right: url('../img/gameboard/right.png');
+    --center: url('../img/gameboard/center.png');
+    --bottom-left: url('../img/gameboard/bottom-left.png');
+    --bottom: url('../img/gameboard/bottom.png');
+    --bottom-right: url('../img/gameboard/bottom-right.png');
+}
