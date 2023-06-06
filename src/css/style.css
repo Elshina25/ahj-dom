@@ -7,6 +7,7 @@ body {
     font-style: oblique;
     font-size: 3rem;
     color: #000;
+    text-align: center;
 }
 
 .game-container {
@@ -15,6 +16,7 @@ body {
 }
 
 .game-statistics {
+    text-align: center;
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
@@ -29,14 +31,14 @@ body {
     flex-wrap: wrap;
     justify-content: space-around;
     border: 1px solid white;
-    background: white;
+    background: #fff;
 }
 
 .cell {
     width: calc(25% - 5px);
     aspect-ratio: 1/1;
     margin: 5px 0;
-    background: gray;
+    background: rgb(119, 121, 120);
     border-radius: 50%;
 }
 
