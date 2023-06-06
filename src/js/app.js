@@ -1,5 +1,4 @@
 // TODO: write code here
-
 import GamePlay from "./gameplay/GamePlay";
 
 document.addEventListener("DOMContentLoaded", () => {

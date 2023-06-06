@@ -3,6 +3,7 @@ export default class GamePlay {
     this.element = element;
     this.boardSize = 4;
     this.cells = [];
+    this.container = null;
   }
 
   drawField() {
