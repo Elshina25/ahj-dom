@@ -1,5 +1,5 @@
 {
-  "name": "webpack5",
+  "name": "dom",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -14,7 +14,7 @@
     "preshow:dist": "npm run build",
     "show:dist": "live-server dist"
   },
-  "author": "coursar",
+  "author": "Elshina25",
   "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.19.3",
