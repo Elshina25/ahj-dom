@@ -2,41 +2,51 @@
 
 import GamePlay from "./gameplay/GamePlay";
 
-document.addEventListener('DOMContentLoaded', () => {
-  const board = document.querySelector('.board');
-  const positions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
+document.addEventListener("DOMContentLoaded", () => {
+  const board = document.querySelector(".board");
   let deadCount = 0;
   let lostCount = 0;
-  let dead = document.querySelector('.dead-number');
-  let lost = document.querySelector('.lost-number');
+  let dead = document.querySelector(".dead-number");
+  let lost = document.querySelector(".lost-number");
   const gameplay = new GamePlay(board);
   gameplay.drawField();
 
-  const randomMove = (positions) => {
-   return positions[Math.floor(Math.random() * positions.length)]
-  }
-
-  Array.from(board.children).forEach(el => {
-    el.classList.remove('cell-with-goblin');
-    setInterval(() => {
-      el.classList.add('cell-with-goblin')
-    }, 2000)
-  })
+  const getRandom = () => Math.floor(Math.random() * gameplay.cells.length);
 
   const interval = setInterval(() => {
-    randomMove(positions)
-  }, 2000);
+    let oneRandom = getRandom();
+    gameplay.cells.forEach((el, i, arr) => {
+      if (i === oneRandom) {
+        if (el === arr[i]) {
+          el.classList.add("cell-with-goblin");
+        }
+      } else {
+        el.classList.remove("cell-with-goblin");
+      }
+    });
+  }, 1000);
 
-
-  board.addEventListener('click', (e) => {
-    if (e.target.classList.contains('cell-with-goblin')) {
-      deadCount += 1;
-      dead.textContent = deadCount;
-    } else {
-      lostCount += 1;
-      lost.textContent = lostCount;
-    }
-  })
-})
-
-
+  gameplay.cells.forEach((el) =>
+    el.addEventListener("click", (e) => {
+      if (el.classList.contains("cell-with-goblin")) {
+        deadCount += 1;
+        dead.textContent = deadCount;
+        if (deadCount >= 10) {
+          clearInterval(interval);
+          alert("Вы забодали гоблина!");
+          dead.textContent = 0;
+          lost.textContent = 0;
+        }
+      } else {
+        lostCount += 1;
+        lost.textContent = lostCount;
+        if (lostCount >= 10) {
+          clearInterval(interval);
+          alert("Гоблин не забодан!");
+          dead.textContent = 0;
+          lost.textContent = 0;
+        }
+      }
+    })
+  );
+});
