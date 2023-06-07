@@ -18,7 +18,7 @@ export default class GamePlay {
   }
 
   getRandom() {
-    return Math.floor(Math.random() * gameplay.cells.length)
+    return Math.floor(Math.random() * this.cells.length)
   }
 
   onInterval() {
