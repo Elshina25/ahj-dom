@@ -2,9 +2,9 @@
 import GamePlay from "./gameplay/GamePlay";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const board = document.querySelector('.board');
+  const board = document.querySelector(".board");
   const gameplay = new GamePlay(board);
   gameplay.drawField();
-  gameplay.onInterval()
+  gameplay.onInterval();
   gameplay.onClick();
-})
+});

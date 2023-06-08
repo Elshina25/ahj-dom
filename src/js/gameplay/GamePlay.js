@@ -18,7 +18,7 @@ export default class GamePlay {
   }
 
   getRandom() {
-    return Math.floor(Math.random() * this.cells.length)
+    return Math.floor(Math.random() * this.cells.length);
   }
 
   onInterval() {
@@ -33,8 +33,7 @@ export default class GamePlay {
           el.classList.remove("cell-with-goblin");
         }
       });
-    }, 800);
-  
+    }, 1000);
   }
 
   onClick() {
@@ -43,27 +42,28 @@ export default class GamePlay {
     let dead = document.querySelector(".dead-number");
     let lost = document.querySelector(".lost-number");
     this.cells.forEach((el) =>
-    el.addEventListener("click", () => {
-      if (el.classList.contains("cell-with-goblin")) {
-        deadCount += 1;
-        dead.textContent = deadCount;
-        if (deadCount >= 10) {
-          clearInterval(this.interval);
-          alert("Вы забодали гоблина!");
-          dead.textContent = 0;
-          lost.textContent = 0;
+      el.addEventListener("click", () => {
+        if (el.classList.contains("cell-with-goblin")) {
+          deadCount += 1;
+          dead.textContent = deadCount;
+          el.classList.remove("cell-with-goblin");
+          if (deadCount >= 10) {
+            clearInterval(this.interval);
+            alert("Вы забодали гоблина!");
+            dead.textContent = 0;
+            lost.textContent = 0;
+          }
+        } else {
+          lostCount += 1;
+          lost.textContent = lostCount;
+          if (lostCount >= 10) {
+            clearInterval(this.interval);
+            alert("Гоблин не забодан!");
+            dead.textContent = 0;
+            lost.textContent = 0;
+          }
         }
-      } else {
-        lostCount += 1;
-        lost.textContent = lostCount;
-        if (lostCount >= 10) {
-          clearInterval(this.interval);
-          alert("Гоблин не забодан!");
-          dead.textContent = 0;
-          lost.textContent = 0;
-        }
-      }
-    })
-  );
+      })
+    );
   }
 }
